@@ -1,1190 +1,1272 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Complete Prophetic Knowledge Collection | Prophet Elijah G. Amusa</title>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --gold: #C9A84C;
-    --gold-light: #F0D080;
-    --gold-dark: #8B6914;
-    --crimson: #8B1A1A;
-    --deep-black: #050508;
-    --charcoal: #0D0D14;
-    --card-bg: #0F0F1A;
-    --card-border: rgba(201,168,76,0.2);
-    --text-primary: #F5EDD8;
-    --text-muted: #9A8E7A;
-  }
-
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    background: var(--deep-black);
-    color: var(--text-primary);
-    font-family: 'Crimson Pro', Georgia, serif;
-    font-size: 18px;
-    line-height: 1.7;
-    overflow-x: hidden;
-  }
-
-  /* ── ANIMATED BACKGROUND PARTICLES ── */
-  body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background:
-      radial-gradient(ellipse 80% 60% at 20% 10%, rgba(201,168,76,0.04) 0%, transparent 60%),
-      radial-gradient(ellipse 60% 80% at 80% 80%, rgba(139,26,26,0.06) 0%, transparent 60%);
-    pointer-events: none;
-    z-index: 0;
-  }
-
-  .section { position: relative; z-index: 1; }
-
-  /* ── ANNOUNCEMENT BAR ── */
-  .top-bar {
-    background: linear-gradient(90deg, var(--crimson), #5A0A0A, var(--crimson));
-    text-align: center;
-    padding: 10px 20px;
-    font-family: 'Rajdhani', sans-serif;
-    font-weight: 600;
-    font-size: 14px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    animation: pulse-bar 3s ease-in-out infinite;
-  }
-
-  @keyframes pulse-bar {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.85; }
-  }
-
-  .top-bar span { color: var(--gold-light); margin: 0 8px; }
-
-  /* ── HERO ── */
-  .hero {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 80px 20px 60px;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .hero::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background:
-      radial-gradient(ellipse 100% 70% at 50% 0%, rgba(201,168,76,0.08) 0%, transparent 60%),
-      radial-gradient(ellipse 80% 50% at 50% 100%, rgba(139,26,26,0.1) 0%, transparent 60%);
-  }
-
-  .hero-eyebrow {
-    font-family: 'Rajdhani', sans-serif;
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 20px;
-    opacity: 0;
-    animation: fadeUp 0.8s ease forwards 0.2s;
-  }
-
-  .hero-title {
-    font-family: 'Cinzel', serif;
-    font-size: clamp(36px, 6vw, 76px);
-    font-weight: 900;
-    line-height: 1.1;
-    max-width: 900px;
-    margin: 0 auto 20px;
-    background: linear-gradient(135deg, #F0D080 0%, #C9A84C 40%, #F5EDD8 70%, #C9A84C 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    opacity: 0;
-    animation: fadeUp 0.8s ease forwards 0.4s;
-  }
-
-  .hero-subtitle {
-    font-family: 'Cinzel', serif;
-    font-size: clamp(16px, 2.5vw, 22px);
-    color: var(--text-muted);
-    max-width: 700px;
-    margin: 0 auto 40px;
-    opacity: 0;
-    animation: fadeUp 0.8s ease forwards 0.6s;
-  }
-
-  .divider-ornament {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    margin: 30px auto;
-    max-width: 400px;
-    opacity: 0;
-    animation: fadeUp 0.8s ease forwards 0.7s;
-  }
-
-  .divider-ornament::before,
-  .divider-ornament::after {
-    content: '';
-    flex: 1;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, var(--gold), transparent);
-  }
-
-  .divider-ornament .gem {
-    color: var(--gold);
-    font-size: 18px;
-  }
-
-  .hero-verse {
-    font-style: italic;
-    color: var(--text-muted);
-    font-size: 17px;
-    max-width: 600px;
-    margin: 0 auto 50px;
-    opacity: 0;
-    animation: fadeUp 0.8s ease forwards 0.9s;
-  }
-
-  .hero-verse cite {
-    display: block;
-    margin-top: 8px;
-    font-style: normal;
-    font-family: 'Rajdhani', sans-serif;
-    font-size: 13px;
-    letter-spacing: 2px;
-    color: var(--gold);
-  }
-
-  .hero-cta-group {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 16px;
-    opacity: 0;
-    animation: fadeUp 0.8s ease forwards 1.1s;
-  }
-
-  .btn-primary {
-    display: inline-block;
-    background: linear-gradient(135deg, #C9A84C, #F0D080, #C9A84C);
-    background-size: 200% 200%;
-    color: #0D0A00;
-    font-family: 'Cinzel', serif;
-    font-size: 18px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    padding: 20px 50px;
-    border-radius: 4px;
-    text-decoration: none;
-    border: none;
-    cursor: pointer;
-    animation: shimmer 3s ease infinite;
-    box-shadow: 0 0 40px rgba(201,168,76,0.3), 0 8px 32px rgba(0,0,0,0.5);
-    transition: transform 0.2s, box-shadow 0.2s;
-  }
-
-  .btn-primary:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 0 60px rgba(201,168,76,0.5), 0 12px 40px rgba(0,0,0,0.6);
-  }
-
-  @keyframes shimmer {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-  }
-
-  .security-note {
-    font-family: 'Rajdhani', sans-serif;
-    font-size: 13px;
-    letter-spacing: 1px;
-    color: var(--text-muted);
-  }
-
-  .security-note span { color: var(--gold); }
-
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  /* ── PAIN SECTION ── */
-  .pain-section {
-    background: linear-gradient(180deg, var(--charcoal) 0%, #080810 100%);
-    padding: 100px 20px;
-    text-align: center;
-  }
-
-  .section-label {
-    font-family: 'Rajdhani', sans-serif;
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 20px;
-  }
-
-  .section-title {
-    font-family: 'Cinzel', serif;
-    font-size: clamp(28px, 4vw, 48px);
-    font-weight: 700;
-    margin-bottom: 30px;
-    line-height: 1.2;
-  }
-
-  .section-title em {
-    color: var(--gold);
-    font-style: normal;
-  }
-
-  .pain-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 24px;
-    max-width: 1000px;
-    margin: 50px auto 0;
-  }
-
-  .pain-card {
-    background: rgba(255,255,255,0.02);
-    border: 1px solid rgba(139,26,26,0.3);
-    border-left: 3px solid var(--crimson);
-    padding: 28px;
-    text-align: left;
-    border-radius: 2px;
-  }
-
-  .pain-card .icon { font-size: 24px; margin-bottom: 12px; }
-  .pain-card h4 {
-    font-family: 'Cinzel', serif;
-    font-size: 15px;
-    color: var(--text-primary);
-    margin-bottom: 8px;
-  }
-  .pain-card p { font-size: 15px; color: var(--text-muted); }
-
-  /* ── SOLUTION SECTION ── */
-  .solution-section {
-    padding: 100px 20px;
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto;
-  }
-
-  .solution-section p {
-    font-size: 20px;
-    color: var(--text-primary);
-    margin-bottom: 20px;
-  }
-
-  .highlight-quote {
-    border-left: 3px solid var(--gold);
-    padding: 24px 32px;
-    margin: 40px 0;
-    text-align: left;
-    background: rgba(201,168,76,0.04);
-    font-size: 22px;
-    font-style: italic;
-    color: var(--gold-light);
-    border-radius: 2px;
-  }
-
-  /* ── BOOKS SECTION ── */
-  .books-section {
-    background: var(--charcoal);
-    padding: 100px 20px;
-  }
-
-  .books-section .inner {
-    max-width: 1100px;
-    margin: 0 auto;
-  }
-
-  .books-header {
-    text-align: center;
-    margin-bottom: 60px;
-  }
-
-  .books-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 24px;
-  }
-
-  .book-card {
-    background: var(--card-bg);
-    border: 1px solid var(--card-border);
-    border-radius: 4px;
-    padding: 28px;
-    display: flex;
-    gap: 20px;
-    align-items: flex-start;
-    transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .book-card::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, rgba(201,168,76,0.04), transparent);
-    opacity: 0;
-    transition: opacity 0.3s;
-  }
-
-  .book-card:hover {
-    border-color: rgba(201,168,76,0.5);
-    transform: translateY(-4px);
-    box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 0 30px rgba(201,168,76,0.1);
-  }
-
-  .book-card:hover::before { opacity: 1; }
-
-  .book-number {
-    font-family: 'Cinzel', serif;
-    font-size: 40px;
-    font-weight: 900;
-    line-height: 1;
-    background: linear-gradient(135deg, var(--gold-dark), var(--gold));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    flex-shrink: 0;
-    width: 50px;
-    text-align: right;
-  }
-
-  .book-info { flex: 1; }
-
-  .book-info h3 {
-    font-family: 'Cinzel', serif;
-    font-size: 16px;
-    font-weight: 700;
-    color: var(--gold-light);
-    margin-bottom: 8px;
-    line-height: 1.3;
-  }
-
-  .book-info p {
-    font-size: 14px;
-    color: var(--text-muted);
-    line-height: 1.5;
-  }
-
-  .book-value {
-    display: inline-block;
-    margin-top: 10px;
-    font-family: 'Rajdhani', sans-serif;
-    font-size: 12px;
-    letter-spacing: 1px;
-    color: var(--gold);
-    border: 1px solid rgba(201,168,76,0.3);
-    padding: 3px 10px;
-    border-radius: 2px;
-  }
-
-  /* ── VALUE STACK ── */
-  .value-section {
-    padding: 100px 20px;
-    text-align: center;
-  }
-
-  .value-table {
-    max-width: 700px;
-    margin: 50px auto;
-    border: 1px solid var(--card-border);
-    border-radius: 4px;
-    overflow: hidden;
-  }
-
-  .value-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 16px 28px;
-    border-bottom: 1px solid rgba(201,168,76,0.08);
-    font-size: 16px;
-    transition: background 0.2s;
-  }
-
-  .value-row:hover { background: rgba(201,168,76,0.03); }
-
-  .value-row:last-child { border-bottom: none; }
-
-  .value-row .label { color: var(--text-muted); }
-  .value-row .price { font-family: 'Rajdhani', sans-serif; font-weight: 600; color: var(--text-primary); }
-
-  .value-row.total {
-    background: rgba(201,168,76,0.06);
-    border-top: 1px solid var(--gold-dark);
-  }
-
-  .value-row.total .label {
-    font-family: 'Cinzel', serif;
-    font-size: 14px;
-    color: var(--text-primary);
-    letter-spacing: 1px;
-  }
-
-  .value-row.total .price {
-    font-size: 18px;
-    text-decoration: line-through;
-    color: var(--text-muted);
-  }
-
-  .value-row.offer {
-    background: linear-gradient(90deg, rgba(201,168,76,0.12), rgba(201,168,76,0.06));
-    border-top: 2px solid var(--gold);
-    padding: 24px 28px;
-  }
-
-  .value-row.offer .label {
-    font-family: 'Cinzel', serif;
-    font-size: 16px;
-    color: var(--gold-light);
-    font-weight: 700;
-  }
-
-  .value-row.offer .price {
-    font-size: 32px;
-    color: var(--gold);
-    font-weight: 700;
-  }
-
-  .savings-badge {
-    display: inline-block;
-    background: var(--crimson);
-    color: white;
-    font-family: 'Rajdhani', sans-serif;
-    font-size: 14px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    padding: 6px 18px;
-    border-radius: 2px;
-    margin-top: 20px;
-  }
-
-  /* ── WHO IS THIS FOR ── */
-  .for-section {
-    background: var(--charcoal);
-    padding: 100px 20px;
-    text-align: center;
-  }
-
-  .for-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 20px;
-    max-width: 900px;
-    margin: 50px auto 0;
-  }
-
-  .for-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 14px;
-    background: rgba(255,255,255,0.02);
-    border: 1px solid var(--card-border);
-    padding: 22px;
-    border-radius: 3px;
-    text-align: left;
-  }
-
-  .for-item .check {
-    color: var(--gold);
-    font-size: 20px;
-    flex-shrink: 0;
-    margin-top: 2px;
-  }
-
-  .for-item p { font-size: 16px; color: var(--text-primary); line-height: 1.4; }
-
-  /* ── AUTHOR SECTION ── */
-  .author-section {
-    padding: 100px 20px;
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: center;
-  }
-
-  .author-badge {
-    display: inline-block;
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, var(--gold-dark), var(--gold));
-    margin-bottom: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Cinzel', serif;
-    font-size: 32px;
-    font-weight: 900;
-    color: #0D0A00;
-    margin: 0 auto 30px;
-    box-shadow: 0 0 40px rgba(201,168,76,0.3);
-  }
-
-  .author-section h2 {
-    font-family: 'Cinzel', serif;
-    font-size: 26px;
-    color: var(--gold-light);
-    margin-bottom: 8px;
-  }
-
-  .author-title {
-    font-family: 'Rajdhani', sans-serif;
-    font-size: 13px;
-    letter-spacing: 3px;
-    color: var(--text-muted);
-    margin-bottom: 30px;
-    text-transform: uppercase;
-  }
-
-  .author-bio {
-    font-size: 18px;
-    color: var(--text-primary);
-    line-height: 1.8;
-  }
-
-  /* ── URGENCY SECTION ── */
-  .urgency-section {
-    background: linear-gradient(135deg, #1A0505, #0D0A00, #1A0505);
-    border-top: 1px solid rgba(139,26,26,0.5);
-    border-bottom: 1px solid rgba(139,26,26,0.5);
-    padding: 80px 20px;
-    text-align: center;
-  }
-
-  .urgency-title {
-    font-family: 'Cinzel', serif;
-    font-size: clamp(24px, 3.5vw, 40px);
-    margin-bottom: 20px;
-    color: #FF6B6B;
-  }
-
-  .urgency-text {
-    max-width: 600px;
-    margin: 0 auto 40px;
-    font-size: 18px;
-    color: var(--text-muted);
-  }
-
-  /* ── GUARANTEE SECTION ── */
-  .guarantee-section {
-    padding: 80px 20px;
-    text-align: center;
-  }
-
-  .guarantee-box {
-    max-width: 600px;
-    margin: 0 auto;
-    border: 2px solid var(--gold-dark);
-    background: rgba(201,168,76,0.04);
-    padding: 50px 40px;
-    border-radius: 4px;
-    position: relative;
-  }
-
-  .guarantee-box::before {
-    content: '⚜';
-    position: absolute;
-    top: -20px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: var(--deep-black);
-    padding: 0 16px;
-    color: var(--gold);
-    font-size: 28px;
-  }
-
-  .guarantee-box h3 {
-    font-family: 'Cinzel', serif;
-    font-size: 24px;
-    color: var(--gold-light);
-    margin-bottom: 20px;
-  }
-
-  .guarantee-box p { color: var(--text-muted); font-size: 16px; line-height: 1.7; }
-
-  /* ── FAQ SECTION ── */
-  .faq-section {
-    background: var(--charcoal);
-    padding: 100px 20px;
-  }
-
-  .faq-section .inner {
-    max-width: 700px;
-    margin: 0 auto;
-  }
-
-  .faq-item {
-    border-bottom: 1px solid rgba(201,168,76,0.1);
-    padding: 28px 0;
-  }
-
-  .faq-q {
-    font-family: 'Cinzel', serif;
-    font-size: 16px;
-    color: var(--gold-light);
-    margin-bottom: 12px;
-    cursor: pointer;
-  }
-
-  .faq-a { font-size: 16px; color: var(--text-muted); line-height: 1.7; }
-
-  /* ── FINAL CTA ── */
-  .final-cta {
-    padding: 120px 20px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .final-cta::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse 80% 60% at 50% 50%, rgba(201,168,76,0.06) 0%, transparent 70%);
-  }
-
-  .final-cta .section-title { max-width: 700px; margin: 0 auto 20px; }
-
-  .final-cta p {
-    max-width: 550px;
-    margin: 0 auto 50px;
-    font-size: 19px;
-    color: var(--text-muted);
-  }
-
-  .price-display {
-    margin: 30px 0;
-  }
-
-  .price-display .was {
-    font-family: 'Rajdhani', sans-serif;
-    font-size: 18px;
-    color: var(--text-muted);
-    text-decoration: line-through;
-    display: block;
-    margin-bottom: 6px;
-  }
-
-  .price-display .now {
-    font-family: 'Cinzel', serif;
-    font-size: 60px;
-    font-weight: 900;
-    background: linear-gradient(135deg, var(--gold), var(--gold-light));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    line-height: 1;
-  }
-
-  .price-display .currency {
-    font-size: 28px;
-    vertical-align: top;
-    margin-top: 10px;
-    display: inline-block;
-  }
-
-  .price-note {
-    font-family: 'Rajdhani', sans-serif;
-    font-size: 13px;
-    letter-spacing: 2px;
-    color: var(--text-muted);
-    margin-top: 10px;
-    text-transform: uppercase;
-  }
-
-  /* ── FOOTER ── */
-  footer {
-    background: #020204;
-    border-top: 1px solid rgba(201,168,76,0.1);
-    padding: 40px 20px;
-    text-align: center;
-  }
-
-  footer p {
-    font-family: 'Rajdhani', sans-serif;
-    font-size: 13px;
-    letter-spacing: 1px;
-    color: var(--text-muted);
-    margin-bottom: 8px;
-  }
-
-  footer a { color: var(--gold); text-decoration: none; }
-
-  /* ── STICKY CTA BAR ── */
-  .sticky-bar {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: linear-gradient(90deg, #0D0A00, #1A1200);
-    border-top: 1px solid var(--gold-dark);
-    padding: 14px 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    z-index: 999;
-    transform: translateY(100%);
-    transition: transform 0.4s ease;
-    gap: 16px;
-  }
-
-  .sticky-bar.visible { transform: translateY(0); }
-
-  .sticky-bar .sticky-text {
-    font-family: 'Cinzel', serif;
-    font-size: 14px;
-    color: var(--text-primary);
-    flex: 1;
-  }
-
-  .sticky-bar .sticky-price {
-    font-family: 'Rajdhani', sans-serif;
-    font-size: 22px;
-    font-weight: 700;
-    color: var(--gold);
-    white-space: nowrap;
-  }
-
-  .btn-small {
-    display: inline-block;
-    background: linear-gradient(135deg, #C9A84C, #F0D080);
-    color: #0D0A00;
-    font-family: 'Cinzel', serif;
-    font-size: 13px;
-    font-weight: 700;
-    padding: 12px 28px;
-    border-radius: 3px;
-    text-decoration: none;
-    white-space: nowrap;
-    transition: transform 0.2s;
-  }
-
-  .btn-small:hover { transform: scale(1.03); }
-
-  /* ── RESPONSIVE ── */
-  @media (max-width: 600px) {
-    .sticky-bar .sticky-text { display: none; }
-    .value-row { padding: 14px 16px; }
-    .guarantee-box { padding: 40px 24px; }
-    .books-grid { grid-template-columns: 1fr; }
-  }
-
-  /* ── SCROLL REVEAL ── */
-  .reveal {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: opacity 0.7s ease, transform 0.7s ease;
-  }
-
-  .reveal.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  /* ── FIRE BADGE ── */
-  .fire-badge {
-    display: inline-block;
-    background: linear-gradient(135deg, #8B1A1A, #C0392B);
-    color: white;
-    font-family: 'Rajdhani', sans-serif;
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    padding: 6px 20px;
-    border-radius: 2px;
-    text-transform: uppercase;
-    margin-bottom: 20px;
-    box-shadow: 0 0 20px rgba(192,57,43,0.3);
-  }
-
-  .gold-line {
-    width: 60px;
-    height: 2px;
-    background: var(--gold);
-    margin: 20px auto;
-  }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Complete Prophetic Knowledge Collection | Prophet Elijah G. Amusa</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --gold: #C9A84C;
+            --gold-light: #F0D080;
+            --gold-dark: #8B6914;
+            --crimson: #8B1A1A;
+            --deep-black: #050508;
+            --charcoal: #0D0D14;
+            --card-bg: #0F0F1A;
+            --card-border: rgba(201,168,76,0.2);
+            --text-primary: #F5EDD8;
+            --text-muted: #9A8E7A;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            background: var(--deep-black);
+            color: var(--text-primary);
+            font-family: 'Crimson Pro', Georgia, serif;
+            font-size: 18px;
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Override Bootstrap link styles so they don't turn blue */
+        a { text-decoration: none; color: inherit; }
+
+        /* ── ANIMATED BACKGROUND PARTICLES ── */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 80% 60% at 20% 10%, rgba(201,168,76,0.04) 0%, transparent 60%),
+                radial-gradient(ellipse 60% 80% at 80% 80%, rgba(139,26,26,0.06) 0%, transparent 60%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .section { position: relative; z-index: 1; }
+
+        /* ── ANNOUNCEMENT BAR ── */
+        .top-bar {
+            background: linear-gradient(90deg, var(--crimson), #5A0A0A, var(--crimson));
+            text-align: center;
+            padding: 10px 20px;
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 600;
+            font-size: 14px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            animation: pulse-bar 3s ease-in-out infinite;
+        }
+
+        @keyframes pulse-bar {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.85; }
+        }
+
+        .top-bar span { color: var(--gold-light); margin: 0 8px; }
+
+        /* ── HERO ── */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 80px 20px 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 100% 70% at 50% 0%, rgba(201,168,76,0.08) 0%, transparent 60%),
+                radial-gradient(ellipse 80% 50% at 50% 100%, rgba(139,26,26,0.1) 0%, transparent 60%);
+        }
+
+        .hero-eyebrow {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 20px;
+            opacity: 0;
+            animation: fadeUp 0.8s ease forwards 0.2s;
+        }
+
+        .hero-title {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(36px, 6vw, 76px);
+            font-weight: 900;
+            line-height: 1.1;
+            max-width: 900px;
+            margin: 0 auto 20px;
+            background: linear-gradient(135deg, #F0D080 0%, #C9A84C 40%, #F5EDD8 70%, #C9A84C 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            opacity: 0;
+            animation: fadeUp 0.8s ease forwards 0.4s;
+        }
+
+        .hero-subtitle {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(16px, 2.5vw, 22px);
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto 40px;
+            opacity: 0;
+            animation: fadeUp 0.8s ease forwards 0.6s;
+        }
+
+        .divider-ornament {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin: 30px auto;
+            max-width: 400px;
+            opacity: 0;
+            animation: fadeUp 0.8s ease forwards 0.7s;
+        }
+
+        .divider-ornament::before,
+        .divider-ornament::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+
+        .divider-ornament .gem {
+            color: var(--gold);
+            font-size: 18px;
+        }
+
+        .hero-verse {
+            font-style: italic;
+            color: var(--text-muted);
+            font-size: 17px;
+            max-width: 600px;
+            margin: 0 auto 50px;
+            opacity: 0;
+            animation: fadeUp 0.8s ease forwards 0.9s;
+        }
+
+        .hero-verse cite {
+            display: block;
+            margin-top: 8px;
+            font-style: normal;
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 13px;
+            letter-spacing: 2px;
+            color: var(--gold);
+        }
+
+        .hero-cta-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+            opacity: 0;
+            animation: fadeUp 0.8s ease forwards 1.1s;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background: linear-gradient(135deg, #C9A84C, #F0D080, #C9A84C);
+            background-size: 200% 200%;
+            color: #0D0A00 !important;
+            font-family: 'Cinzel', serif;
+            font-size: 18px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            padding: 20px 50px;
+            border-radius: 4px;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            animation: shimmer 3s ease infinite;
+            box-shadow: 0 0 40px rgba(201,168,76,0.3), 0 8px 32px rgba(0,0,0,0.5);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 60px rgba(201,168,76,0.5), 0 12px 40px rgba(0,0,0,0.6);
+        }
+
+        @keyframes shimmer {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .security-note {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 13px;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+        }
+
+        .security-note span { color: var(--gold); }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ── PAIN SECTION ── */
+        .pain-section {
+            background: linear-gradient(180deg, var(--charcoal) 0%, #080810 100%);
+            padding: 100px 20px;
+            text-align: center;
+        }
+
+        .section-label {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(28px, 4vw, 48px);
+            font-weight: 700;
+            margin-bottom: 30px;
+            line-height: 1.2;
+        }
+
+        .section-title em {
+            color: var(--gold);
+            font-style: normal;
+        }
+
+        .pain-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            max-width: 1000px;
+            margin: 50px auto 0;
+        }
+
+        .pain-card {
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(139,26,26,0.3);
+            border-left: 3px solid var(--crimson);
+            padding: 28px;
+            text-align: left;
+            border-radius: 2px;
+        }
+
+        .pain-card .icon { font-size: 24px; margin-bottom: 12px; }
+        .pain-card h4 {
+            font-family: 'Cinzel', serif;
+            font-size: 15px;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+        .pain-card p { font-size: 15px; color: var(--text-muted); }
+
+        /* ── SOLUTION SECTION ── */
+        .solution-section {
+            padding: 100px 20px;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .solution-section p {
+            font-size: 20px;
+            color: var(--text-primary);
+            margin-bottom: 20px;
+        }
+
+        .highlight-quote {
+            border-left: 3px solid var(--gold);
+            padding: 24px 32px;
+            margin: 40px 0;
+            text-align: left;
+            background: rgba(201,168,76,0.04);
+            font-size: 22px;
+            font-style: italic;
+            color: var(--gold-light);
+            border-radius: 2px;
+        }
+
+        /* ── BOOKS SECTION ── */
+        .books-section {
+            background: var(--charcoal);
+            padding: 100px 20px;
+        }
+
+        .books-section .inner {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .books-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .books-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .book-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 4px;
+            padding: 28px;
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+            transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .book-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(201,168,76,0.04), transparent);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .book-card:hover {
+            border-color: rgba(201,168,76,0.5);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 0 30px rgba(201,168,76,0.1);
+        }
+
+        .book-card:hover::before { opacity: 1; }
+
+        .book-number {
+            font-family: 'Cinzel', serif;
+            font-size: 40px;
+            font-weight: 900;
+            line-height: 1;
+            background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            flex-shrink: 0;
+            width: 50px;
+            text-align: right;
+        }
+
+        .book-info { flex: 1; }
+
+        .book-info h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--gold-light);
+            margin-bottom: 8px;
+            line-height: 1.3;
+        }
+
+        .book-info p {
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        .book-value {
+            display: inline-block;
+            margin-top: 10px;
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 12px;
+            letter-spacing: 1px;
+            color: var(--gold);
+            border: 1px solid rgba(201,168,76,0.3);
+            padding: 3px 10px;
+            border-radius: 2px;
+        }
+
+        /* ── VALUE STACK ── */
+        .value-section {
+            padding: 100px 20px;
+            text-align: center;
+        }
+
+        .value-table {
+            max-width: 700px;
+            margin: 50px auto;
+            border: 1px solid var(--card-border);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .value-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 28px;
+            border-bottom: 1px solid rgba(201,168,76,0.08);
+            font-size: 16px;
+            transition: background 0.2s;
+        }
+
+        .value-row:hover { background: rgba(201,168,76,0.03); }
+
+        .value-row:last-child { border-bottom: none; }
+
+        .value-row .label { color: var(--text-muted); }
+        .value-row .price { font-family: 'Rajdhani', sans-serif; font-weight: 600; color: var(--text-primary); }
+
+        .value-row.total {
+            background: rgba(201,168,76,0.06);
+            border-top: 1px solid var(--gold-dark);
+        }
+
+        .value-row.total .label {
+            font-family: 'Cinzel', serif;
+            font-size: 14px;
+            color: var(--text-primary);
+            letter-spacing: 1px;
+        }
+
+        .value-row.total .price {
+            font-size: 18px;
+            text-decoration: line-through;
+            color: var(--text-muted);
+        }
+
+        .value-row.offer {
+            background: linear-gradient(90deg, rgba(201,168,76,0.12), rgba(201,168,76,0.06));
+            border-top: 2px solid var(--gold);
+            padding: 24px 28px;
+        }
+
+        .value-row.offer .label {
+            font-family: 'Cinzel', serif;
+            font-size: 16px;
+            color: var(--gold-light);
+            font-weight: 700;
+        }
+
+        .value-row.offer .price {
+            font-size: 32px;
+            color: var(--gold);
+            font-weight: 700;
+        }
+
+        .savings-badge {
+            display: inline-block;
+            background: var(--crimson);
+            color: white;
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            padding: 6px 18px;
+            border-radius: 2px;
+            margin-top: 20px;
+        }
+
+        /* ── WHO IS THIS FOR ── */
+        .for-section {
+            background: var(--charcoal);
+            padding: 100px 20px;
+            text-align: center;
+        }
+
+        .for-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+            max-width: 900px;
+            margin: 50px auto 0;
+        }
+
+        .for-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            background: rgba(255,255,255,0.02);
+            border: 1px solid var(--card-border);
+            padding: 22px;
+            border-radius: 3px;
+            text-align: left;
+        }
+
+        .for-item .check {
+            color: var(--gold);
+            font-size: 20px;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .for-item p { font-size: 16px; color: var(--text-primary); line-height: 1.4; }
+
+        /* ── AUTHOR SECTION ── */
+        .author-section {
+            padding: 100px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .author-badge {
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Cinzel', serif;
+            font-size: 32px;
+            font-weight: 900;
+            color: #0D0A00;
+            margin: 0 auto 30px;
+            box-shadow: 0 0 40px rgba(201,168,76,0.3);
+        }
+
+        .author-section h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 26px;
+            color: var(--gold-light);
+            margin-bottom: 8px;
+        }
+
+        .author-title {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 13px;
+            letter-spacing: 3px;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+            text-transform: uppercase;
+        }
+
+        .author-bio {
+            font-size: 18px;
+            color: var(--text-primary);
+            line-height: 1.8;
+        }
+
+        /* ── URGENCY SECTION ── */
+        .urgency-section {
+            background: linear-gradient(135deg, #1A0505, #0D0A00, #1A0505);
+            border-top: 1px solid rgba(139,26,26,0.5);
+            border-bottom: 1px solid rgba(139,26,26,0.5);
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .urgency-title {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(24px, 3.5vw, 40px);
+            margin-bottom: 20px;
+            color: #FF6B6B;
+        }
+
+        .urgency-text {
+            max-width: 600px;
+            margin: 0 auto 40px;
+            font-size: 18px;
+            color: var(--text-muted);
+        }
+
+        /* ── GUARANTEE SECTION ── */
+        .guarantee-section {
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .guarantee-box {
+            max-width: 600px;
+            margin: 0 auto;
+            border: 2px solid var(--gold-dark);
+            background: rgba(201,168,76,0.04);
+            padding: 50px 40px;
+            border-radius: 4px;
+            position: relative;
+        }
+
+        .guarantee-box::before {
+            content: '⚜';
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--deep-black);
+            padding: 0 16px;
+            color: var(--gold);
+            font-size: 28px;
+        }
+
+        .guarantee-box h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 24px;
+            color: var(--gold-light);
+            margin-bottom: 20px;
+        }
+
+        .guarantee-box p { color: var(--text-muted); font-size: 16px; line-height: 1.7; }
+
+        /* ── FAQ SECTION ── */
+        .faq-section {
+            background: var(--charcoal);
+            padding: 100px 20px;
+        }
+
+        .faq-section .inner {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid rgba(201,168,76,0.1);
+            padding: 28px 0;
+        }
+
+        .faq-q {
+            font-family: 'Cinzel', serif;
+            font-size: 16px;
+            color: var(--gold-light);
+            margin-bottom: 12px;
+            cursor: pointer;
+        }
+
+        .faq-a { font-size: 16px; color: var(--text-muted); line-height: 1.7; }
+
+        /* ── FINAL CTA ── */
+        .final-cta {
+            padding: 120px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .final-cta::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse 80% 60% at 50% 50%, rgba(201,168,76,0.06) 0%, transparent 70%);
+        }
+
+        .final-cta .section-title { max-width: 700px; margin: 0 auto 20px; }
+
+        .final-cta p {
+            max-width: 550px;
+            margin: 0 auto 50px;
+            font-size: 19px;
+            color: var(--text-muted);
+        }
+
+        .price-display {
+            margin: 30px 0;
+        }
+
+        .price-display .was {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 18px;
+            color: var(--text-muted);
+            text-decoration: line-through;
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .price-display .now {
+            font-family: 'Cinzel', serif;
+            font-size: 60px;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+        }
+
+        .price-display .currency {
+            font-size: 28px;
+            vertical-align: top;
+            margin-top: 10px;
+            display: inline-block;
+        }
+
+        .price-note {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 13px;
+            letter-spacing: 2px;
+            color: var(--text-muted);
+            margin-top: 10px;
+            text-transform: uppercase;
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            background: #020204;
+            border-top: 1px solid rgba(201,168,76,0.1);
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        footer p {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 13px;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+
+        footer a { color: var(--gold); text-decoration: none; }
+
+        /* ── STICKY CTA BAR ── */
+        .sticky-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(90deg, #0D0A00, #1A1200);
+            border-top: 1px solid var(--gold-dark);
+            padding: 14px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            z-index: 999;
+            transform: translateY(100%);
+            transition: transform 0.4s ease;
+            gap: 16px;
+        }
+
+        .sticky-bar.visible { transform: translateY(0); }
+
+        .sticky-bar .sticky-text {
+            font-family: 'Cinzel', serif;
+            font-size: 14px;
+            color: var(--text-primary);
+            flex: 1;
+        }
+
+        .sticky-bar .sticky-price {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--gold);
+            white-space: nowrap;
+        }
+
+        .btn-small {
+            display: inline-block;
+            background: linear-gradient(135deg, #C9A84C, #F0D080);
+            color: #0D0A00 !important;
+            font-family: 'Cinzel', serif;
+            font-size: 13px;
+            font-weight: 700;
+            padding: 12px 28px;
+            border-radius: 3px;
+            text-decoration: none;
+            white-space: nowrap;
+            transition: transform 0.2s;
+            cursor: pointer;
+        }
+
+        .btn-small:hover { transform: scale(1.03); }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 600px) {
+            .sticky-bar .sticky-text { display: none; }
+            .value-row { padding: 14px 16px; }
+            .guarantee-box { padding: 40px 24px; }
+            .books-grid { grid-template-columns: 1fr; }
+        }
+
+        /* ── SCROLL REVEAL ── */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ── FIRE BADGE ── */
+        .fire-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #8B1A1A, #C0392B);
+            color: white;
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            padding: 6px 20px;
+            border-radius: 2px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            box-shadow: 0 0 20px rgba(192,57,43,0.3);
+        }
+
+        .gold-line {
+            width: 60px;
+            height: 2px;
+            background: var(--gold);
+            margin: 20px auto;
+        }
+
+        /* ── CUSTOM MODAL STYLING TO MATCH THEME ── */
+        .modal-content {
+            background: var(--card-bg);
+            border: 1px solid var(--gold);
+            color: var(--text-primary);
+        }
+        .modal-header { border-bottom: 1px solid var(--card-border); }
+        .modal-footer { border-top: 1px solid var(--card-border); }
+        .nav-tabs .nav-link { color: var(--text-muted); }
+        .nav-tabs .nav-link.active { 
+            background-color: var(--gold) !important; 
+            color: #000 !important; 
+            border-color: var(--gold);
+        }
+        .btn-close { filter: invert(1); }
+    </style>
 </head>
 <body>
 
-<!-- ANNOUNCEMENT BAR -->
 <div class="top-bar">
-  ⚡ <span>LIMITED TIME OFFER</span> All 10 Bestselling eBooks for just ₦9,999 <span>•</span> This Price Expires Soon <span>⚡</span>
+    ⚡ <span>LIMITED TIME OFFER</span> All 10 Bestselling eBooks for just ₦9,999 <span>•</span> This Price Expires Soon <span>⚡</span>
 </div>
 
-<!-- HERO SECTION -->
 <section class="hero section">
-  <div class="hero-eyebrow">Prophet Elijah G. Amusa Presents</div>
-  <h1 class="hero-title">The Complete Prophetic Knowledge Collection</h1>
-  <p class="hero-subtitle">10 Power-Packed eBooks That Will Permanently Upgrade How You Operate in the Spirit</p>
+    <div class="hero-eyebrow">Prophet Elijah G. Amusa Presents</div>
+    <h1 class="hero-title">The Complete Prophetic Knowledge Collection</h1>
+    <p class="hero-subtitle">10 Power-Packed eBooks That Will Permanently Upgrade How You Operate in the Spirit</p>
 
-  <div class="divider-ornament">
-    <span class="gem">✦</span>
-    <span class="gem">✦</span>
-    <span class="gem">✦</span>
-  </div>
+    <div class="divider-ornament">
+        <span class="gem">✦</span>
+        <span class="gem">✦</span>
+        <span class="gem">✦</span>
+    </div>
 
-  <blockquote class="hero-verse">
-    "My people are destroyed for lack of knowledge."
-    <cite>— Hosea 4:6</cite>
-  </blockquote>
+    <blockquote class="hero-verse">
+        "My people are destroyed for lack of knowledge."
+        <cite>— Hosea 4:6</cite>
+    </blockquote>
 
-  <div class="hero-cta-group">
-    <div class="fire-badge">🔥 Limited Edition Bundle</div>
-    <a href="#order" class="btn-primary">YES — I Want All 10 Books for ₦9,999</a>
-    <p class="security-note">🔒 Secure Checkout &nbsp;|&nbsp; <span>Instant Digital Delivery</span> &nbsp;|&nbsp; All 10 eBooks Included</p>
-  </div>
+    <div class="hero-cta-group">
+        <div class="fire-badge">🔥 Limited Edition Bundle</div>
+        <button class="btn-primary" data-bs-toggle="modal" data-bs-target="#paymentModal">YES — I Want All 10 Books for ₦9,999</button>
+        <p class="security-note">🔒 Secure Checkout &nbsp;|&nbsp; <span>Instant Digital Delivery</span> &nbsp;|&nbsp; All 10 eBooks Included</p>
+    </div>
 </section>
 
-<!-- PAIN SECTION -->
 <section class="pain-section section">
-  <div class="section-label">The Problem</div>
-  <h2 class="section-title reveal">Are You Stuck at the Same <em>Level</em>?</h2>
-  <p class="reveal" style="max-width:640px;margin:0 auto;font-size:19px;color:var(--text-muted);">
-    Most prophetic believers are operating at 10% of their God-given capacity — not because they lack anointing, but because they lack <strong style="color:var(--text-primary)">ordered, activated, prophetic knowledge.</strong>
-  </p>
-  <div class="pain-grid">
-    <div class="pain-card reveal">
-      <div class="icon">⚠️</div>
-      <h4>Stagnation in Your Calling</h4>
-      <p>You feel the fire inside, but cannot seem to translate it into consistent, tangible results in your ministry.</p>
+    <div class="section-label">The Problem</div>
+    <h2 class="section-title reveal">Are You Stuck at the Same <em>Level</em>?</h2>
+    <p class="reveal" style="max-width:640px;margin:0 auto;font-size:19px;color:var(--text-muted);">
+        Most prophetic believers are operating at 10% of their God-given capacity — not because they lack anointing, but because they lack <strong style="color:var(--text-primary)">ordered, activated, prophetic knowledge.</strong>
+    </p>
+    <div class="pain-grid">
+        <div class="pain-card reveal">
+            <div class="icon">⚠️</div>
+            <h4>Stagnation in Your Calling</h4>
+            <p>You feel the fire inside, but cannot seem to translate it into consistent, tangible results in your ministry.</p>
+        </div>
+        <div class="pain-card reveal">
+            <div class="icon">⚠️</div>
+            <h4>Unanswered Spiritual Questions</h4>
+            <p>You hunger to understand the prophetic office, angelic operations, and spiritual protocols — but nobody is teaching at that depth.</p>
+        </div>
+        <div class="pain-card reveal">
+            <div class="icon">⚠️</div>
+            <h4>Foundational Hindrances</h4>
+            <p>Invisible ceilings keep blocking your next level — inherited powers, foundational curses, and unaddressed spiritual roots.</p>
+        </div>
+        <div class="pain-card reveal">
+            <div class="icon">⚠️</div>
+            <h4>No Revival Momentum</h4>
+            <p>You dream of hosting moves of God, but lack the knowledge to ignite, sustain, and govern a genuine revival.</p>
+        </div>
     </div>
-    <div class="pain-card reveal">
-      <div class="icon">⚠️</div>
-      <h4>Unanswered Spiritual Questions</h4>
-      <p>You hunger to understand the prophetic office, angelic operations, and spiritual protocols — but nobody is teaching at that depth.</p>
-    </div>
-    <div class="pain-card reveal">
-      <div class="icon">⚠️</div>
-      <h4>Foundational Hindrances</h4>
-      <p>Invisible ceilings keep blocking your next level — inherited powers, foundational curses, and unaddressed spiritual roots.</p>
-    </div>
-    <div class="pain-card reveal">
-      <div class="icon">⚠️</div>
-      <h4>No Revival Momentum</h4>
-      <p>You dream of hosting moves of God, but lack the knowledge to ignite, sustain, and govern a genuine revival.</p>
-    </div>
-  </div>
 </section>
 
-<!-- SOLUTION SECTION -->
 <section class="solution-section section">
-  <div class="section-label reveal">The Solution</div>
-  <h2 class="section-title reveal">The Difference Between Prophets Who <em>Move Crowds</em> and Those Who Move Chairs</h2>
-  <div class="gold-line reveal"></div>
-  <p class="reveal">
-    There is a reason some ministries ignite nations while others plan for years and see nothing. The difference is not just anointing — it is <strong>structured, strategic, prophetic intelligence.</strong>
-  </p>
-  <div class="highlight-quote reveal">
-    "Knowledge in the Kingdom is not academic. It is the framework that channels anointing into power, and power into transformation."
-  </div>
-  <p class="reveal">
-    Prophet Elijah G. Amusa has spent years in the fire of the prophetic office — studying, practising, ascending — and has distilled everything into <strong>10 comprehensive volumes</strong> that cover every dimension of prophetic ministry you need to master.
-  </p>
+    <div class="section-label reveal">The Solution</div>
+    <h2 class="section-title reveal">The Difference Between Prophets Who <em>Move Crowds</em> and Those Who Move Chairs</h2>
+    <div class="gold-line reveal"></div>
+    <p class="reveal">
+        There is a reason some ministries ignite nations while others plan for years and see nothing. The difference is not just anointing — it is <strong>structured, strategic, prophetic intelligence.</strong>
+    </p>
+    <div class="highlight-quote reveal">
+        "Knowledge in the Kingdom is not academic. It is the framework that channels anointing into power, and power into transformation."
+    </div>
+    <p class="reveal">
+        Prophet Elijah G. Amusa has spent years in the fire of the prophetic office — studying, practising, ascending — and has distilled everything into <strong>10 comprehensive volumes</strong> that cover every dimension of prophetic ministry you need to master.
+    </p>
 </section>
 
-<!-- BOOKS SECTION -->
 <section class="books-section section">
-  <div class="inner">
-    <div class="books-header">
-      <div class="section-label reveal">What You're Getting</div>
-      <h2 class="section-title reveal">All 10 Bestselling eBooks — <em>One Bundle</em></h2>
-      <div class="gold-line reveal"></div>
+    <div class="inner">
+        <div class="books-header">
+            <div class="section-label reveal">What You're Getting</div>
+            <h2 class="section-title reveal">All 10 Bestselling eBooks — <em>One Bundle</em></h2>
+            <div class="gold-line reveal"></div>
+        </div>
+        <div class="books-grid">
+
+            <div class="book-card reveal">
+                <div class="book-number">01</div>
+                <div class="book-info">
+                    <h3>Holy Madness</h3>
+                    <p>The power of brutal faith and radical obedience that produces instant solutions. This book will shake every ounce of spiritual comfort out of you.</p>
+                    <span class="book-value">VALUE: ₦3,500</span>
+                </div>
+            </div>
+
+            <div class="book-card reveal">
+                <div class="book-number">02</div>
+                <div class="book-info">
+                    <h3>How to Breakout from Foundation & Foundational Powers</h3>
+                    <p>Identify and destroy the invisible ceilings erected by foundational darkness against your calling, destiny, and ministry advancement.</p>
+                    <span class="book-value">VALUE: ₦3,500</span>
+                </div>
+            </div>
+
+            <div class="book-card reveal">
+                <div class="book-number">03</div>
+                <div class="book-info">
+                    <h3>Visualization & Forensic Prophecies</h3>
+                    <p>Master prophetic intelligence — discern, decode, and deliver razor-accurate prophetic words with consistency and spiritual precision.</p>
+                    <span class="book-value">VALUE: ₦3,500</span>
+                </div>
+            </div>
+
+            <div class="book-card reveal">
+                <div class="book-number">04</div>
+                <div class="book-info">
+                    <h3>How to Summon Angels</h3>
+                    <p>Unlock the mysteries of angelic orders and create the spiritual conditions that position you for sustained heavenly assistance and intervention.</p>
+                    <span class="book-value">VALUE: ₦3,500</span>
+                </div>
+            </div>
+
+            <div class="book-card reveal">
+                <div class="book-number">05</div>
+                <div class="book-info">
+                    <h3>Pulling Crowds</h3>
+                    <p>The secrets behind ministries that attract multitudes — not through marketing tricks alone, but through divine spiritual magnetism and Kingdom order.</p>
+                    <span class="book-value">VALUE: ₦3,500</span>
+                </div>
+            </div>
+
+            <div class="book-card reveal">
+                <div class="book-number">06</div>
+                <div class="book-info">
+                    <h3>How to Host & Pioneer Revivals</h3>
+                    <p>Everything you need to ignite, sustain, and govern a genuine move of God in your city, church, nation, or territory.</p>
+                    <span class="book-value">VALUE: ₦3,500</span>
+                </div>
+            </div>
+
+            <div class="book-card reveal">
+                <div class="book-number">07</div>
+                <div class="book-info">
+                    <h3>Tongues & Interpretations in the Prophetic</h3>
+                    <p>Navigate the deeper dimensions of praying in the Spirit and accurately interpreting what God is saying through the gift of tongues.</p>
+                    <span class="book-value">VALUE: ₦3,500</span>
+                </div>
+            </div>
+
+            <div class="book-card reveal">
+                <div class="book-number">08</div>
+                <div class="book-info">
+                    <h3>Telepathic Communication with Angels in the Prophetic</h3>
+                    <p>Discover how prophets hear, sense, and receive transmissions from the angelic realm with clarity, accuracy, and discernment.</p>
+                    <span class="book-value">VALUE: ₦3,500</span>
+                </div>
+            </div>
+
+            <div class="book-card reveal">
+                <div class="book-number">09</div>
+                <div class="book-info">
+                    <h3>PHD — Prophetic Healing & Deliverance</h3>
+                    <p>A complete manual for operating in healing and deliverance as a prophetic dimension — structured, powerful, and reproducible.</p>
+                    <span class="book-value">VALUE: ₦3,500</span>
+                </div>
+            </div>
+
+            <div class="book-card reveal">
+                <div class="book-number">10</div>
+                <div class="book-info">
+                    <h3>Creating Prophetic Atmosphere & Environment</h3>
+                    <p>Learn how to engineer the spiritual climate in any room, service, or territory for maximum divine encounter and sustained presence of God.</p>
+                    <span class="book-value">VALUE: ₦3,500</span>
+                </div>
+            </div>
+
+        </div>
     </div>
-    <div class="books-grid">
-
-      <div class="book-card reveal">
-        <div class="book-number">01</div>
-        <div class="book-info">
-          <h3>Holy Madness</h3>
-          <p>The power of brutal faith and radical obedience that produces instant solutions. This book will shake every ounce of spiritual comfort out of you.</p>
-          <span class="book-value">VALUE: ₦3000</span>
-        </div>
-      </div>
-
-      <div class="book-card reveal">
-        <div class="book-number">02</div>
-        <div class="book-info">
-          <h3>How to Breakout from Foundation & Foundational Powers</h3>
-          <p>Identify and destroy the invisible ceilings erected by foundational darkness against your calling, destiny, and ministry advancement.</p>
-          <span class="book-value">VALUE: ₦3000</span>
-        </div>
-      </div>
-
-      <div class="book-card reveal">
-        <div class="book-number">03</div>
-        <div class="book-info">
-          <h3>Visualization & Forensic Prophecies</h3>
-          <p>Master prophetic intelligence — discern, decode, and deliver razor-accurate prophetic words with consistency and spiritual precision.</p>
-          <span class="book-value">VALUE: ₦3000</span>
-        </div>
-      </div>
-
-      <div class="book-card reveal">
-        <div class="book-number">04</div>
-        <div class="book-info">
-          <h3>How to Summon Angels</h3>
-          <p>Unlock the mysteries of angelic orders and create the spiritual conditions that position you for sustained heavenly assistance and intervention.</p>
-          <span class="book-value">VALUE: ₦3000</span>
-        </div>
-      </div>
-
-      <div class="book-card reveal">
-        <div class="book-number">05</div>
-        <div class="book-info">
-          <h3>Pulling Crowds</h3>
-          <p>The secrets behind ministries that attract multitudes — not through marketing tricks alone, but through divine spiritual magnetism and Kingdom order.</p>
-          <span class="book-value">VALUE: ₦3000</span>
-        </div>
-      </div>
-
-      <div class="book-card reveal">
-        <div class="book-number">06</div>
-        <div class="book-info">
-          <h3>How to Host & Pioneer Revivals</h3>
-          <p>Everything you need to ignite, sustain, and govern a genuine move of God in your city, church, nation, or territory.</p>
-          <span class="book-value">VALUE: ₦3000</span>
-        </div>
-      </div>
-
-      <div class="book-card reveal">
-        <div class="book-number">07</div>
-        <div class="book-info">
-          <h3>Tongues & Interpretations in the Prophetic</h3>
-          <p>Navigate the deeper dimensions of praying in the Spirit and accurately interpreting what God is saying through the gift of tongues.</p>
-          <span class="book-value">VALUE: ₦3000</span>
-        </div>
-      </div>
-
-      <div class="book-card reveal">
-        <div class="book-number">08</div>
-        <div class="book-info">
-          <h3>Telepathic Communication with Angels in the Prophetic</h3>
-          <p>Discover how prophets hear, sense, and receive transmissions from the angelic realm with clarity, accuracy, and discernment.</p>
-          <span class="book-value">VALUE: ₦3000</span>
-        </div>
-      </div>
-
-      <div class="book-card reveal">
-        <div class="book-number">09</div>
-        <div class="book-info">
-          <h3>PHD — Prophetic Healing & Deliverance</h3>
-          <p>A complete manual for operating in healing and deliverance as a prophetic dimension — structured, powerful, and reproducible.</p>
-          <span class="book-value">VALUE: ₦3000</span>
-        </div>
-      </div>
-
-      <div class="book-card reveal">
-        <div class="book-number">10</div>
-        <div class="book-info">
-          <h3>Creating Prophetic Atmosphere & Environment</h3>
-          <p>Learn how to engineer the spiritual climate in any room, service, or territory for maximum divine encounter and sustained presence of God.</p>
-          <span class="book-value">VALUE: ₦3000</span>
-        </div>
-      </div>
-
-    </div>
-  </div>
 </section>
 
-<!-- VALUE STACK -->
 <section class="value-section section">
-  <div class="section-label reveal">Total Value Breakdown</div>
-  <h2 class="section-title reveal">What This Collection Is <em>Really Worth</em></h2>
-  <div class="value-table reveal">
-    <div class="value-row"><span class="label">Holy Madness</span><span class="price">₦3000</span></div>
-    <div class="value-row"><span class="label">How to Breakout from Foundational Powers</span><span class="price">₦3000</span></div>
-    <div class="value-row"><span class="label">Visualization & Forensic Prophecies</span><span class="price">₦3000</span></div>
-    <div class="value-row"><span class="label">How to Summon Angels</span><span class="price">₦3000</span></div>
-    <div class="value-row"><span class="label">Pulling Crowds</span><span class="price">₦3000</span></div>
-    <div class="value-row"><span class="label">How to Host & Pioneer Revivals</span><span class="price">₦3000</span></div>
-    <div class="value-row"><span class="label">Tongues & Interpretations in the Prophetic</span><span class="price">₦3000</span></div>
-    <div class="value-row"><span class="label">Telepathic Communication with Angels</span><span class="price">₦3000</span></div>
-    <div class="value-row"><span class="label">PHD — Prophetic Healing & Deliverance</span><span class="price">₦3000</span></div>
-    <div class="value-row"><span class="label">Creating Prophetic Atmosphere & Environment</span><span class="price">₦3000</span></div>
-    <div class="value-row total"><span class="label">TOTAL REAL VALUE</span><span class="price">₦35,000</span></div>
-    <div class="value-row offer"><span class="label">🔥 YOUR PRICE TODAY</span><span class="price">₦9,999</span></div>
-  </div>
-  <div class="savings-badge reveal">💰 YOU SAVE ₦25,001 — OVER 71% OFF</div>
+    <div class="section-label reveal">Total Value Breakdown</div>
+    <h2 class="section-title reveal">What This Collection Is <em>Really Worth</em></h2>
+    <div class="value-table reveal">
+        <div class="value-row"><span class="label">Holy Madness</span><span class="price">₦3,500</span></div>
+        <div class="value-row"><span class="label">How to Breakout from Foundational Powers</span><span class="price">₦3,500</span></div>
+        <div class="value-row"><span class="label">Visualization & Forensic Prophecies</span><span class="price">₦3,500</span></div>
+        <div class="value-row"><span class="label">How to Summon Angels</span><span class="price">₦3,500</span></div>
+        <div class="value-row"><span class="label">Pulling Crowds</span><span class="price">₦3,500</span></div>
+        <div class="value-row"><span class="label">How to Host & Pioneer Revivals</span><span class="price">₦3,500</span></div>
+        <div class="value-row"><span class="label">Tongues & Interpretations in the Prophetic</span><span class="price">₦3,500</span></div>
+        <div class="value-row"><span class="label">Telepathic Communication with Angels</span><span class="price">₦3,500</span></div>
+        <div class="value-row"><span class="label">PHD — Prophetic Healing & Deliverance</span><span class="price">₦3,500</span></div>
+        <div class="value-row"><span class="label">Creating Prophetic Atmosphere & Environment</span><span class="price">₦3,500</span></div>
+        <div class="value-row total"><span class="label">TOTAL REAL VALUE</span><span class="price">₦35,000</span></div>
+        <div class="value-row offer"><span class="label">🔥 YOUR PRICE TODAY</span><span class="price">₦9,999</span></div>
+    </div>
+    <div class="savings-badge reveal">💰 YOU SAVE ₦25,001 — OVER 71% OFF</div>
 </section>
 
-<!-- WHO IS THIS FOR -->
 <section class="for-section section">
-  <div class="section-label reveal">Is This For You?</div>
-  <h2 class="section-title reveal">This Collection Is For <em>Kingdom Carriers</em> Who Are Ready</h2>
-  <div class="for-grid">
-    <div class="for-item reveal"><span class="check">✦</span><p>Prophets and prophetic ministers hungry to go deeper than the surface level</p></div>
-    <div class="for-item reveal"><span class="check">✦</span><p>Intercessors who want their prayers to produce visible, tangible results</p></div>
-    <div class="for-item reveal"><span class="check">✦</span><p>Pastors and leaders building revival-ready, spiritually ordered churches</p></div>
-    <div class="for-item reveal"><span class="check">✦</span><p>Believers who know they're called but feel spiritually stagnant and frustrated</p></div>
-    <div class="for-item reveal"><span class="check">✦</span><p>Anyone serious about ascending to the next level of their prophetic assignment</p></div>
-    <div class="for-item reveal"><span class="check">✦</span><p>Ministers who want to operate in healing, deliverance, and angelic dimensions</p></div>
-  </div>
+    <div class="section-label reveal">Is This For You?</div>
+    <h2 class="section-title reveal">This Collection Is For <em>Kingdom Carriers</em> Who Are Ready</h2>
+    <div class="for-grid">
+        <div class="for-item reveal"><span class="check">✦</span><p>Prophets and prophetic ministers hungry to go deeper than the surface level</p></div>
+        <div class="for-item reveal"><span class="check">✦</span><p>Intercessors who want their prayers to produce visible, tangible results</p></div>
+        <div class="for-item reveal"><span class="check">✦</span><p>Pastors and leaders building revival-ready, spiritually ordered churches</p></div>
+        <div class="for-item reveal"><span class="check">✦</span><p>Believers who know they're called but feel spiritually stagnant and frustrated</p></div>
+        <div class="for-item reveal"><span class="check">✦</span><p>Anyone serious about ascending to the next level of their prophetic assignment</p></div>
+        <div class="for-item reveal"><span class="check">✦</span><p>Ministers who want to operate in healing, deliverance, and angelic dimensions</p></div>
+    </div>
 </section>
 
-<!-- AUTHOR SECTION -->
 <section class="author-section section">
-  <div class="section-label reveal">About The Author</div>
-  <div class="author-badge reveal">EA</div>
-  <h2 class="reveal">Prophet Elijah G. Amusa</h2>
-  <p class="author-title reveal">Prophetic Minister · Author · Kingdom Voice</p>
-  <div class="gold-line reveal"></div>
-  <p class="author-bio reveal">
-    Prophet Elijah G. Amusa is a prolific prophetic minister whose mandate spans healing, revival, and Kingdom advancement. Shaped by years of intense consecration and prophetic practice — and deeply influenced by the late Prophet T.B. Joshua — he has dedicated his life to raising a generation of believers who operate in full prophetic authority. His books are not theoretical. They are drawn from the fire of lived prophetic experience, delivered to equip you for real-world spiritual impact.
-  </p>
+    <div class="section-label reveal">About The Author</div>
+    <div class="author-badge reveal">EA</div>
+    <h2 class="reveal">Prophet Elijah G. Amusa</h2>
+    <p class="author-title reveal">Prophetic Minister · Author · Kingdom Voice</p>
+    <div class="gold-line reveal"></div>
+    <p class="author-bio reveal">
+        Prophet Elijah G. Amusa is a prolific prophetic minister whose mandate spans healing, revival, and Kingdom advancement. Shaped by years of intense consecration and prophetic practice — and deeply influenced by the late Prophet T.B. Joshua — he has dedicated his life to raising a generation of believers who operate in full prophetic authority. His books are not theoretical. They are drawn from the fire of lived prophetic experience, delivered to equip you for real-world spiritual impact.
+    </p>
 </section>
 
-<!-- URGENCY -->
 <section class="urgency-section section">
-  <div class="urgency-title reveal">⚠️ This Window Is Closing</div>
-  <p class="urgency-text reveal">
-    This bundle price of ₦9,999 is a limited-time Kingdom investment window. Once this offer expires, each book returns to its individual retail price. You would pay more than 3× this amount to own all 10 separately.
-  </p>
-  <p class="reveal" style="font-family:'Cinzel',serif;font-size:18px;color:var(--gold-light);font-style:italic;">
-    "This is not a marketing trick. This is a window — and windows close."
-  </p>
+    <div class="urgency-title reveal">⚠️ This Window Is Closing</div>
+    <p class="urgency-text reveal">
+        This bundle price of ₦9,999 is a limited-time Kingdom investment window. Once this offer expires, each book returns to its individual retail price. You would pay more than 3× this amount to own all 10 separately.
+    </p>
+    <p class="reveal" style="font-family:'Cinzel',serif;font-size:18px;color:var(--gold-light);font-style:italic;">
+        "This is not a marketing trick. This is a window — and windows close."
+    </p>
 </section>
 
-<!-- GUARANTEE -->
 <section class="guarantee-section section">
-  <div class="guarantee-box reveal">
-    <h3>Our Kingdom Confidence Guarantee</h3>
-    <div class="gold-line"></div>
-    <p>
-      These books carry years of prophetic revelation, practical wisdom, and Kingdom intelligence. We are confident they will transform how you operate in the Spirit. Access all 10 eBooks instantly after your order is confirmed. If you have any issues with your download or delivery, our team will resolve it immediately. No delays. No excuses.
-    </p>
-  </div>
+    <div class="guarantee-box reveal">
+        <h3>Our Kingdom Confidence Guarantee</h3>
+        <div class="gold-line"></div>
+        <p>
+            These books carry years of prophetic revelation, practical wisdom, and Kingdom intelligence. We are confident they will transform how you operate in the Spirit. Access all 10 eBooks instantly after your order is confirmed. If you have any issues with your download or delivery, our team will resolve it immediately. No delays. No excuses.
+        </p>
+    </div>
 </section>
 
-<!-- FAQ -->
 <section class="faq-section section">
-  <div class="inner">
-    <div class="section-label reveal" style="text-align:center">Common Questions</div>
-    <h2 class="section-title reveal" style="text-align:center;margin-bottom:50px">Frequently Asked <em>Questions</em></h2>
+    <div class="inner">
+        <div class="section-label reveal" style="text-align:center">Common Questions</div>
+        <h2 class="section-title reveal" style="text-align:center;margin-bottom:50px">Frequently Asked <em>Questions</em></h2>
 
-    <div class="faq-item reveal">
-      <p class="faq-q">📖 Are these physical books or digital?</p>
-      <p class="faq-a">All 10 are digital eBooks (PDF format) delivered instantly to your email after payment. You can read them on any phone, tablet, or computer — no shipping, no waiting.</p>
-    </div>
+        <div class="faq-item reveal">
+            <p class="faq-q">📖 Are these physical books or digital?</p>
+            <p class="faq-a">All 10 are digital eBooks (PDF format) delivered instantly to your email after payment. You can read them on any phone, tablet, or computer — no shipping, no waiting.</p>
+        </div>
 
-    <div class="faq-item reveal">
-      <p class="faq-q">⚡ How quickly will I receive my books?</p>
-      <p class="faq-a">Immediately upon payment confirmation. A download link will be sent directly to your email address within minutes of your purchase.</p>
-    </div>
+        <div class="faq-item reveal">
+            <p class="faq-q">⚡ How quickly will I receive my books?</p>
+            <p class="faq-a">Immediately upon payment confirmation. A download link will be sent directly to your email address within minutes of your purchase.</p>
+        </div>
 
-    <div class="faq-item reveal">
-      <p class="faq-q">💳 What payment methods are accepted?</p>
-      <p class="faq-a">We accept all major debit/credit cards and bank transfers. The checkout process is fully secured and encrypted.</p>
-    </div>
+        <div class="faq-item reveal">
+            <p class="faq-q">💳 What payment methods are accepted?</p>
+            <p class="faq-a">We accept all major debit/credit cards and bank transfers. The checkout process is fully secured and encrypted.</p>
+        </div>
 
-    <div class="faq-item reveal">
-      <p class="faq-q">🌍 Can I purchase from outside Nigeria?</p>
-      <p class="faq-a">Yes. Anyone anywhere in the world can purchase this collection. The pricing displayed is in Nigerian Naira, but international cards are accepted.</p>
-    </div>
+        <div class="faq-item reveal">
+            <p class="faq-q">🌍 Can I purchase from outside Nigeria?</p>
+            <p class="faq-a">Yes. Anyone anywhere in the world can purchase this collection. The pricing displayed is in Nigerian Naira, but international cards are accepted.</p>
+        </div>
 
-    <div class="faq-item reveal">
-      <p class="faq-q">📱 Can I read these on my phone?</p>
-      <p class="faq-a">Absolutely. All 10 eBooks are in PDF format, fully readable on any smartphone, tablet, laptop, or Kindle device.</p>
+        <div class="faq-item reveal">
+            <p class="faq-q">📱 Can I read these on my phone?</p>
+            <p class="faq-a">Absolutely. All 10 eBooks are in PDF format, fully readable on any smartphone, tablet, laptop, or Kindle device.</p>
+        </div>
     </div>
-  </div>
 </section>
 
-<!-- FINAL CTA -->
-<section class="final-cta section" >
-  <div class="section-label reveal">Your Decision Moment</div>
-  <h2 class="section-title reveal">The Prophets Who Will Shape the <em>Next Decade</em> Are Investing Now</h2>
-  <p class="reveal">This is not just 10 books. This is a prophetic upgrade. Every page carries revelation that took years to receive — and it is available to you today for one decisive investment.</p>
+<section class="final-cta section" id="order">
+    <div class="section-label reveal">Your Decision Moment</div>
+    <h2 class="section-title reveal">The Prophets Who Will Shape the <em>Next Decade</em> Are Investing Now</h2>
+    <p class="reveal">This is not just 10 books. This is a prophetic upgrade. Every page carries revelation that took years to receive — and it is available to you today for one decisive investment.</p>
 
-  <div class="price-display reveal">
-    <span class="was">Regular Price: ₦35,000</span>
-    <span class="now"><span class="currency">₦</span>9,999</span>
-    <p class="price-note">One-Time Payment · All 10 eBooks · Instant Access</p>
-  </div>
+    <div class="price-display reveal">
+        <span class="was">Regular Price: ₦35,000</span>
+        <span class="now"><span class="currency">₦</span>9,999</span>
+        <p class="price-note">One-Time Payment · All 10 eBooks · Instant Access</p>
+    </div>
 
-  <div style="margin-top:40px" class="reveal">
-    <a href="Cta.html" class="btn-primary" data-bs-toggle="modal" data-bs-target="#paymentModal">YES — I Want All 10 Books for ₦9,999</a>
-    <p style="margin-top:20px;font-family:'Rajdhani',sans-serif;font-size:13px;letter-spacing:1px;color:var(--text-muted)">
-      🔒 SECURE CHECKOUT &nbsp;·&nbsp; INSTANT DELIVERY &nbsp;·&nbsp; LIMITED TIME PRICE
-    </p>
-  </div>
+    <div style="margin-top:40px" class="reveal">
+        <button class="btn-primary" style="font-size:20px;padding:24px 60px" data-bs-toggle="modal" data-bs-target="#paymentModal">
+            🛒 YES — I Want All 10 Books for ₦9,999
+        </button>
+        <p style="margin-top:20px;font-family:'Rajdhani',sans-serif;font-size:13px;letter-spacing:1px;color:var(--text-muted)">
+            🔒 SECURE CHECKOUT &nbsp;·&nbsp; INSTANT DELIVERY &nbsp;·&nbsp; LIMITED TIME PRICE
+        </p>
+    </div>
 
-  <div style="margin-top:60px;max-width:600px;margin-left:auto;margin-right:auto;" class="reveal">
-    <p style="font-family:'Cinzel',serif;font-size:18px;font-style:italic;color:var(--text-muted);">
-      "Your next level is not waiting for a sign. It is waiting for a decision."
-    </p>
-    <p style="margin-top:8px;font-family:'Rajdhani',sans-serif;font-size:13px;letter-spacing:2px;color:var(--gold);">— PROPHET ELIJAH G. AMUSA</p>
-  </div>
+    <div style="margin-top:60px;max-width:600px;margin-left:auto;margin-right:auto;" class="reveal">
+        <p style="font-family:'Cinzel',serif;font-size:18px;font-style:italic;color:var(--text-muted);">
+            "Your next level is not waiting for a sign. It is waiting for a decision."
+        </p>
+        <p style="margin-top:8px;font-family:'Rajdhani',sans-serif;font-size:13px;letter-spacing:2px;color:var(--gold);">— PROPHET ELIJAH G. AMUSA</p>
+    </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
-  <p>© 2025 Prophet Elijah G. Amusa · All Rights Reserved</p>
-  <p><a href="Cta.html">Privacy Policy</a> &nbsp;|&nbsp; <a href="Cat.hmtl">Terms of Service</a> &nbsp;|&nbsp; <a href="#">Contact Support</a></p>
-  <p style="margin-top:16px;font-size:11px;line-height:1.6;">This is a digital product. All purchases are final. For download issues, contact our support team within 48 hours of purchase.</p>
+    <p>© 2025 Prophet Elijah G. Amusa · All Rights Reserved</p>
+    <p><a href="#">Privacy Policy</a> &nbsp;|&nbsp; <a href="#">Terms of Service</a> &nbsp;|&nbsp; <a href="#">Contact Support</a></p>
+    <p style="margin-top:16px;font-size:11px;line-height:1.6;">This is a digital product. All purchases are final. For download issues, contact our support team within 48 hours of purchase.</p>
 </footer>
 
-<!-- STICKY BAR -->
 <div class="sticky-bar" id="stickyBar">
-  <span class="sticky-text">🔥 The Complete Prophetic Knowledge Collection — All 10 eBooks</span>
-  <span class="sticky-price">₦9,999</span>
-  <a href="Cta.html" class="btn-primary" data-bs-toggle="modal" data-bs-target="#paymentModal">YES — I Want All 10 Books for ₦9,999</a>
+    <span class="sticky-text">🔥 The Complete Prophetic Knowledge Collection — All 10 eBooks</span>
+    <span class="sticky-price">₦9,999</span>
+    <button class="btn-small" data-bs-toggle="modal" data-bs-target="#paymentModal">GET INSTANT ACCESS</button>
 </div>
 
+<div class="modal fade" id="paymentModal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title" style="font-family: 'Cinzel', serif;">Complete Your Payment</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <div class="modal-body">
+        <ul class="nav nav-tabs" id="paymentTabs">
+          <li class="nav-item">
+            <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#naira">Naira (₦)</button>
+          </li>
+          <li class="nav-item">
+            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#usd">USD ($)</button>
+          </li>
+        </ul>
+
+        <div class="tab-content mt-3">
+          <div class="tab-pane fade show active" id="naira">
+            <p><strong>Account Number:</strong> 614 213 4208</p>
+            <p><strong>Bank:</strong> OPay</p>
+            <p><strong>Account Name:</strong> Godpower Elijah Amusa</p>
+          </div>
+          <div class="tab-pane fade" id="usd">
+            <p><strong>Account Name:</strong> Godpower Elijah Amusa</p>
+            <p><strong>Bank Name:</strong> Wells Fargo</p>
+            <p><strong>Account Number:</strong> 40630293732499102</p>
+            <p><strong>Account Type:</strong> Checking</p>
+            <p><strong>Routing Number:</strong> 121000248</p>
+            <p><strong>SWIFT Code:</strong> WFBIUS6S</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer d-flex justify-content-between">
+        <button class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#helpModal">
+          I couldn't pay
+        </button>
+        <button class="btn btn-success" onclick="paidNow()" style="background-color: #28a745; border:none; font-weight:bold;">
+          I HAVE PAID
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="helpModal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content text-center p-3">
+      <h5 style="color:var(--gold)">Payment Issue</h5>
+      <p>Please retry payment or contact support via WhatsApp.</p>
+      <div class="d-flex justify-content-center gap-2">
+        <button class="btn btn-secondary" data-bs-dismiss="modal">Retry</button>
+        <button class="btn btn-primary" onclick="needHelp()" style="background:var(--crimson); border:none;">Contact Support</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
 <script>
-  // Scroll reveal
-  const reveals = document.querySelectorAll('.reveal');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry, i) => {
-      if (entry.isIntersecting) {
-        setTimeout(() => {
-          entry.target.classList.add('visible');
-        }, 80);
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
-
-  reveals.forEach(el => observer.observe(el));
-
-  // Stagger children in grids
-  document.querySelectorAll('.books-grid, .pain-grid, .for-grid').forEach(grid => {
-    grid.querySelectorAll('.reveal').forEach((card, i) => {
-      card.style.transitionDelay = `${i * 80}ms`;
-    });
-  });
-
-  // Sticky bar
-  const stickyBar = document.getElementById('stickyBar');
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 600) {
-      stickyBar.classList.add('visible');
-    } else {
-      stickyBar.classList.remove('visible');
+    // Payment Logic
+    function paidNow() {
+      let msg = encodeURIComponent("I have made payments for the 10 e-books. Verify and send to me.");
+      window.location.href = "https://wa.me/2348139230672?text=" + msg;
     }
-  });
+
+    function needHelp() {
+      let msg = encodeURIComponent("I am experiencing difficulty paying for the ebooks and need assistance.");
+      window.location.href = "https://wa.me/2348139230672?text=" + msg;
+    }
+
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, i) => {
+            if (entry.isIntersecting) {
+                setTimeout(() => {
+                    entry.target.classList.add('visible');
+                }, 80);
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+
+    reveals.forEach(el => observer.observe(el));
+
+    // Stagger children in grids
+    document.querySelectorAll('.books-grid, .pain-grid, .for-grid').forEach(grid => {
+        grid.querySelectorAll('.reveal').forEach((card, i) => {
+            card.style.transitionDelay = `${i * 80}ms`;
+        });
+    });
+
+    // Sticky bar
+    const stickyBar = document.getElementById('stickyBar');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 600) {
+            stickyBar.classList.add('visible');
+        } else {
+            stickyBar.classList.remove('visible');
+        }
+    });
 </script>
-  
 </body>
 </html>
