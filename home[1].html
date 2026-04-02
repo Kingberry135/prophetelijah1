@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Payment Popup</title>
+
+<!-- Bootstrap 5 CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+<body class="p-5">
+
+<!-- Trigger Button -->
+<button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#paymentModal">
+  Buy E-books
+</button>
+
+<!-- MAIN PAYMENT MODAL -->
+<div class="modal fade" id="paymentModal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title">Complete Your Payment</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <div class="modal-body">
+
+        <!-- Tabs -->
+        <ul class="nav nav-tabs" id="paymentTabs">
+          <li class="nav-item">
+            <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#naira">Naira (₦)</button>
+          </li>
+          <li class="nav-item">
+            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#usd">USD ($)</button>
+          </li>
+        </ul>
+
+        <div class="tab-content mt-3">
+
+          <!-- NAIRA -->
+          <div class="tab-pane fade show active" id="naira">
+            <p><strong>Account Number:</strong> 614 213 4208</p>
+            <p><strong>Bank:</strong> OPay</p>
+            <p><strong>Account Name:</strong> Godpower Elijah Amusa</p>
+          </div>
+
+          <!-- USD -->
+          <div class="tab-pane fade" id="usd">
+            <p><strong>Account Name:</strong> Godpower Elijah Amusa</p>
+            <p><strong>Bank Name:</strong> Wells Fargo</p>
+            <p><strong>Account Number:</strong> 40630293732499102</p>
+            <p><strong>Account Type:</strong> Checking</p>
+            <p><strong>Routing Number:</strong> 121000248</p>
+            <p><strong>SWIFT Code:</strong> WFBIUS6S</p>
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="modal-footer d-flex justify-content-between">
+
+        <!-- Couldn't Pay -->
+        <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#helpModal">
+          I couldn't make payment
+        </button>
+
+        <!-- Paid -->
+        <button class="btn btn-success" onclick="paidNow()">
+          I have made the payment
+        </button>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- HELP MODAL -->
+<div class="modal fade" id="helpModal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content text-center p-3">
+
+      <h5>Payment Issue</h5>
+      <p>Please retry payment or contact support.</p>
+
+      <div class="d-flex justify-content-center gap-2">
+        <button class="btn btn-secondary" data-bs-dismiss="modal">Retry</button>
+        <button class="btn btn-primary" onclick="needHelp()">Contact Support</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+// USER CLICKED "I HAVE PAID"
+function paidNow() {
+  let msg = encodeURIComponent("I have made payments for the 10 e-books. Verify and send to me.");
+  window.location.href = "https://wa.me/2348139230672?text=" + msg;
+}
+
+// USER NEEDS HELP
+function needHelp() {
+  let msg = encodeURIComponent("I am experiencing difficulty paying for the ebooks and need assistance.");
+  window.location.href = "https://wa.me/2348139230672?text=" + msg;
+}
+</script>
+
+</body>
+</html>
