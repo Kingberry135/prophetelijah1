@@ -7,12 +7,11 @@
 
 <!-- Bootstrap 5 CSS -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-
 </head>
 <body class="p-5">
 
 <!-- Trigger Button -->
-<button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#paymentModal">
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#paymentModal">
   Buy E-books
 </button>
 
@@ -29,12 +28,12 @@
       <div class="modal-body">
 
         <!-- Tabs -->
-        <ul class="nav nav-tabs" id="paymentTabs">
+        <ul class="nav nav-tabs" id="paymentTabs" role="tablist">
           <li class="nav-item">
-            <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#naira">Naira (₦)</button>
+            <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#naira" type="button">Naira (₦)</button>
           </li>
           <li class="nav-item">
-            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#usd">USD ($)</button>
+            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#usd" type="button">USD ($)</button>
           </li>
         </ul>
 
@@ -64,12 +63,12 @@
       <div class="modal-footer d-flex justify-content-between">
 
         <!-- Couldn't Pay -->
-        <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#helpModal">
+        <button type="button" class="btn btn-danger" onclick="openHelpModal()">
           I couldn't make payment
         </button>
 
         <!-- Paid -->
-        <button class="btn btn-success" onclick="paidNow()">
+        <button type="button" class="btn btn-success" onclick="paidNow()">
           I have made the payment
         </button>
 
@@ -88,8 +87,8 @@
       <p>Please retry payment or contact support.</p>
 
       <div class="d-flex justify-content-center gap-2">
-        <button class="btn btn-secondary" data-bs-dismiss="modal">Retry</button>
-        <button class="btn btn-primary" onclick="needHelp()">Contact Support</button>
+        <button type="button" class="btn btn-secondary" onclick="retryPayment()">Retry</button>
+        <button type="button" class="btn btn-primary" onclick="needHelp()">Contact Support</button>
       </div>
 
     </div>
@@ -100,15 +99,37 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
 <script>
-// USER CLICKED "I HAVE PAID"
+// Open help modal from payment modal
+function openHelpModal() {
+  const paymentModalEl = document.getElementById('paymentModal');
+  const paymentModal = bootstrap.Modal.getInstance(paymentModalEl);
+  paymentModal.hide(); // hide payment modal first
+
+  const helpModalEl = document.getElementById('helpModal');
+  const helpModal = new bootstrap.Modal(helpModalEl);
+  helpModal.show(); // then show help modal
+}
+
+// Retry button closes help modal and reopens payment modal
+function retryPayment() {
+  const helpModalEl = document.getElementById('helpModal');
+  const helpModal = bootstrap.Modal.getInstance(helpModalEl);
+  helpModal.hide(); // hide help modal
+
+  const paymentModalEl = document.getElementById('paymentModal');
+  const paymentModal = new bootstrap.Modal(paymentModalEl);
+  paymentModal.show(); // show payment modal
+}
+
+// User clicked "I have paid"
 function paidNow() {
-  let msg = encodeURIComponent("I have made payments for the 10 e-books. Verify and send to me.");
+  const msg = encodeURIComponent("I have made payments for the 10 e-books. Verify and send to me.");
   window.location.href = "https://wa.me/2348139230672?text=" + msg;
 }
 
-// USER NEEDS HELP
+// User needs help
 function needHelp() {
-  let msg = encodeURIComponent("I am experiencing difficulty paying for the ebooks and need assistance.");
+  const msg = encodeURIComponent("I am experiencing difficulty paying for the ebooks and need assistance.");
   window.location.href = "https://wa.me/2348139230672?text=" + msg;
 }
 </script>
