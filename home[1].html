@@ -4,135 +4,232 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Payment Popup</title>
+<style>
+/* Basic body styling */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  padding: 50px;
+  color: #111;
+}
 
-<!-- Bootstrap 5 CSS -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+/* Buttons */
+button {
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+.btn-primary { background-color: #007bff; color: #fff; }
+.btn-success { background-color: #28a745; color: #fff; }
+.btn-danger { background-color: #dc3545; color: #fff; }
+.btn-secondary { background-color: #6c757d; color: #fff; }
+
+/* Modal overlay */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.6);
+  justify-content: center;
+  align-items: center;
+}
+
+/* Modal content */
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 500px;
+  width: 90%;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* Modal header */
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.modal-header h5 {
+  margin: 0;
+  font-size: 1.2em;
+}
+
+/* Close button */
+.close-btn {
+  background: none;
+  font-size: 1.2em;
+}
+
+/* Tabs */
+.tabs {
+  display: flex;
+  margin-bottom: 15px;
+}
+
+.tab-btn {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #007bff;
+  cursor: pointer;
+  background-color: #e9ecef;
+  text-align: center;
+  font-weight: bold;
+  color: #111;
+}
+
+.tab-btn.active {
+  background-color: #007bff;
+  color: #fff;
+}
+
+/* Tab content */
+.tab-content {
+  border: 1px solid #007bff;
+  border-top: none;
+  padding: 10px;
+  background-color: #fff;
+  color: #111;
+}
+
+/* Modal footer */
+.modal-footer {
+  margin-top: 15px;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Copy button */
+.copy-btn {
+  padding: 5px 10px;
+  margin-left: 10px;
+  font-size: 0.9em;
+  border-radius: 4px;
+  background-color: #17a2b8;
+  color: #fff;
+}
+</style>
 </head>
-<body class="p-5">
+<body>
 
 <!-- Trigger Button -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#paymentModal">
-  Buy E-books
-</button>
+<button class="btn-primary" id="buyBtn">Buy E-books</button>
 
-<!-- MAIN PAYMENT MODAL -->
-<div class="modal fade" id="paymentModal" tabindex="-1">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
+<!-- Payment Modal -->
+<div class="modal" id="paymentModal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5>Complete Your Payment</h5>
+      <button class="close-btn" id="closePayment">&times;</button>
+    </div>
 
-      <div class="modal-header">
-        <h5 class="modal-title">Complete Your Payment</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-      </div>
+    <!-- Tabs -->
+    <div class="tabs">
+      <div class="tab-btn active" data-tab="naira">Naira (₦)</div>
+      <div class="tab-btn" data-tab="usd">USD ($)</div>
+    </div>
 
-      <div class="modal-body">
+    <div class="tab-content" id="naira">
+      <p><strong>Account Number:</strong> <span id="nairaAcc">614 213 4208</span> 
+      <button class="copy-btn" onclick="copyText('nairaAcc')">Copy</button></p>
+      <p><strong>Bank:</strong> OPay</p>
+      <p><strong>Account Name:</strong> Godpower Elijah Amusa</p>
+    </div>
 
-        <!-- Tabs -->
-        <ul class="nav nav-tabs" id="paymentTabs" role="tablist">
-          <li class="nav-item">
-            <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#naira" type="button">Naira (₦)</button>
-          </li>
-          <li class="nav-item">
-            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#usd" type="button">USD ($)</button>
-          </li>
-        </ul>
+    <div class="tab-content" id="usd" style="display:none;">
+      <p><strong>Account Name:</strong> Godpower Elijah Amusa</p>
+      <p><strong>Bank Name:</strong> Wells Fargo</p>
+      <p><strong>Account Number:</strong> <span id="usdAcc">40630293732499102</span> 
+      <button class="copy-btn" onclick="copyText('usdAcc')">Copy</button></p>
+      <p><strong>Account Type:</strong> Checking</p>
+      <p><strong>Routing Number:</strong> 121000248</p>
+      <p><strong>SWIFT Code:</strong> WFBIUS6S</p>
+    </div>
 
-        <div class="tab-content mt-3">
-
-          <!-- NAIRA -->
-          <div class="tab-pane fade show active" id="naira">
-            <p><strong>Account Number:</strong> 614 213 4208</p>
-            <p><strong>Bank:</strong> OPay</p>
-            <p><strong>Account Name:</strong> Godpower Elijah Amusa</p>
-          </div>
-
-          <!-- USD -->
-          <div class="tab-pane fade" id="usd">
-            <p><strong>Account Name:</strong> Godpower Elijah Amusa</p>
-            <p><strong>Bank Name:</strong> Wells Fargo</p>
-            <p><strong>Account Number:</strong> 40630293732499102</p>
-            <p><strong>Account Type:</strong> Checking</p>
-            <p><strong>Routing Number:</strong> 121000248</p>
-            <p><strong>SWIFT Code:</strong> WFBIUS6S</p>
-          </div>
-
-        </div>
-
-      </div>
-
-      <div class="modal-footer d-flex justify-content-between">
-
-        <!-- Couldn't Pay -->
-        <button type="button" class="btn btn-danger" onclick="openHelpModal()">
-          I couldn't make payment
-        </button>
-
-        <!-- Paid -->
-        <button type="button" class="btn btn-success" onclick="paidNow()">
-          I have made the payment
-        </button>
-
-      </div>
-
+    <div class="modal-footer">
+      <button class="btn-danger" id="couldntPayBtn">I couldn't make payment</button>
+      <button class="btn-success" id="paidBtn">I have made the payment</button>
     </div>
   </div>
 </div>
 
-<!-- HELP MODAL -->
-<div class="modal fade" id="helpModal" tabindex="-1">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content text-center p-3">
-
+<!-- Help Modal -->
+<div class="modal" id="helpModal">
+  <div class="modal-content">
+    <div class="modal-header">
       <h5>Payment Issue</h5>
-      <p>Please retry payment or contact support.</p>
-
-      <div class="d-flex justify-content-center gap-2">
-        <button type="button" class="btn btn-secondary" onclick="retryPayment()">Retry</button>
-        <button type="button" class="btn btn-primary" onclick="needHelp()">Contact Support</button>
-      </div>
-
+      <button class="close-btn" id="closeHelp">&times;</button>
+    </div>
+    <p>Please retry payment or contact support.</p>
+    <div class="modal-footer">
+      <button class="btn-secondary" id="retryBtn">Retry</button>
+      <button class="btn-primary" id="contactSupportBtn">Contact Support</button>
     </div>
   </div>
 </div>
-
-<!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
 <script>
-// Open help modal from payment modal
-function openHelpModal() {
-  const paymentModalEl = document.getElementById('paymentModal');
-  const paymentModal = bootstrap.Modal.getInstance(paymentModalEl);
-  paymentModal.hide(); // hide payment modal first
+// Modal helpers
+function openModal(modal) { modal.style.display = 'flex'; }
+function closeModal(modal) { modal.style.display = 'none'; }
 
-  const helpModalEl = document.getElementById('helpModal');
-  const helpModal = new bootstrap.Modal(helpModalEl);
-  helpModal.show(); // then show help modal
-}
+// Elements
+const paymentModal = document.getElementById('paymentModal');
+const helpModal = document.getElementById('helpModal');
 
-// Retry button closes help modal and reopens payment modal
-function retryPayment() {
-  const helpModalEl = document.getElementById('helpModal');
-  const helpModal = bootstrap.Modal.getInstance(helpModalEl);
-  helpModal.hide(); // hide help modal
+document.getElementById('buyBtn').onclick = () => openModal(paymentModal);
+document.getElementById('closePayment').onclick = () => closeModal(paymentModal);
+document.getElementById('closeHelp').onclick = () => closeModal(helpModal);
 
-  const paymentModalEl = document.getElementById('paymentModal');
-  const paymentModal = new bootstrap.Modal(paymentModalEl);
-  paymentModal.show(); // show payment modal
-}
+// Tab switching
+const tabs = document.querySelectorAll('.tab-btn');
+tabs.forEach(tab => {
+  tab.addEventListener('click', () => {
+    tabs.forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
 
-// User clicked "I have paid"
-function paidNow() {
+    document.querySelectorAll('.tab-content').forEach(tc => tc.style.display = 'none');
+    document.getElementById(tab.getAttribute('data-tab')).style.display = 'block';
+  });
+});
+
+// Payment modal buttons
+document.getElementById('couldntPayBtn').onclick = () => {
+  closeModal(paymentModal);
+  openModal(helpModal);
+};
+
+document.getElementById('retryBtn').onclick = () => {
+  closeModal(helpModal);
+  openModal(paymentModal);
+};
+
+// WhatsApp actions
+document.getElementById('paidBtn').onclick = () => {
   const msg = encodeURIComponent("I have made payments for the 10 e-books. Verify and send to me.");
   window.location.href = "https://wa.me/2348139230672?text=" + msg;
-}
+};
 
-// User needs help
-function needHelp() {
+document.getElementById('contactSupportBtn').onclick = () => {
   const msg = encodeURIComponent("I am experiencing difficulty paying for the ebooks and need assistance.");
   window.location.href = "https://wa.me/2348139230672?text=" + msg;
+};
+
+// Copy to clipboard
+function copyText(id) {
+  const text = document.getElementById(id).innerText;
+  navigator.clipboard.writeText(text).then(() => {
+    alert("Copied: " + text);
+  });
 }
 </script>
 
 </body>
-</html>
+                              </html>
